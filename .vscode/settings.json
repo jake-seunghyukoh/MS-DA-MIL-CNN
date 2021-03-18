@@ -1,0 +1,5 @@
+{
+  "python.pythonPath": "/Users/seunghyukoh/opt/anaconda3/envs/MS_DA_MIL/bin/python3.6",
+  "editor.formatOnSave": true,
+  "python.formatting.provider": "black"
+}
