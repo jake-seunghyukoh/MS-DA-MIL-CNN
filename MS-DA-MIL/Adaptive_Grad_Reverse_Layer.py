@@ -14,8 +14,8 @@ Propagate with negating gradients of weight in backpropagation
 
 class AdaptiveGradReverse(Function):
     @staticmethod
-    def forward(ctx, x, lambda, attention):
-        ctx.lambda = lambda
+    def forward(ctx, x, lr, attention):
+        ctx.lambda = lr
         ctx.attention = attention
         return x.view_as(x)
 
