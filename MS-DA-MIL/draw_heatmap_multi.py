@@ -20,8 +20,6 @@ Visualization of attention weights normalized for each bag
 result_file: output file of multi_train
 attention_dir: directory for saving normalized attention
 """
-
-
 def norm_attention(result_file, attention_dir):
     makedir(attention_dir)
     slide_list = []
