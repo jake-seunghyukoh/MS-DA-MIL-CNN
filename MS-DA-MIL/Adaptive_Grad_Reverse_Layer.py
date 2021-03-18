@@ -15,7 +15,7 @@ Propagate with negating gradients of weight in backpropagation
 class AdaptiveGradReverse(Function):
     @staticmethod
     def forward(ctx, x, lr, attention):
-        ctx.lambda = lr
+        ctx.lr = lr
         ctx.attention = attention
         return x.view_as(x)
 
@@ -25,6 +25,6 @@ class AdaptiveGradReverse(Function):
         max_attention = torch.max(attention)
         adaptive_attention = max_attention-attention
         adaptive_attention = adaptive_attention.unsqueeze(1)
-        output = (grad_output.neg() * ctx.lambda)
+        output = (grad_output.neg() * ctx.lr)
         adaptive_output = adaptive_attention * output
         return adaptive_output, None, None
